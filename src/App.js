@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
-function App() {
+
+const App = () => {
+  const [message, setMessage] = useState('');
+  const [error, setError] = useState('');
+
+  useEffect(() => {
+    axios.get('http://localhost:8080/hello')
+      .then(response => {
+        setMessage(response.data);
+      })
+      .catch(error => {
+        if (error.message === 'Network Error') {
+          setError('Unable to connect to the server. Please ensure it is running.');
+        } else {
+          setError('An error occurred while fetching the data.');
+        }
+      });
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {error ? (
+        <h1>Error: {error}</h1>
+      ) : (
+        <h1>{message}</h1>
+      )}
     </div>
   );
-}
+};
 
 export default App;
