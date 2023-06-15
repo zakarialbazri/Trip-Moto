@@ -7,7 +7,7 @@ const App = () => {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    axios.get('https://springg-backend-5d364fab1a4f.herokuapp.com/')
+    axios.get('https://springg-backend-5d364fab1a4f.herokuapp.com/hello')
       .then(response => {
         setMessage(response.data);
       })
