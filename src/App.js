@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Navbar from "./components/navbar";
+import Menu from "./components/menu";
 
 
-const App = () => {
+
+const App = () => { 
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
 
   useEffect(() => {
-    axios.get('https://springg-backend-5d364fab1a4f.herokuapp.com/hello')
+    axios.get('http://localhost:8080/hello')
       .then(response => {
         setMessage(response.data);
       })
@@ -21,13 +24,12 @@ const App = () => {
   }, []);
 
   return (
-    <div>
-      {error ? (
-        <h1>Error: {error}</h1>
-      ) : (
-        <h1>{message}</h1>
-      )}
-    </div>
+   <div>
+    
+     <Navbar />
+     <Menu />
+      <h1>dafad</h1>
+     </div>
   );
 };
 
