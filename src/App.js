@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Navbar from "./components/navbar";
-import Menu from "./components/menu";
+
 
 
 
@@ -24,11 +24,11 @@ const App = () => {
   }, []);
 
   return (
-   <div>
+   <div className='Body'>
     
      <Navbar />
-     <Menu />
-      <h1>dafad</h1>
+     <h1>hello</h1>
+      
      </div>
   );
 };

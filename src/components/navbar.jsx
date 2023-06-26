@@ -14,7 +14,8 @@ import MenuItem from '@mui/material/MenuItem';
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
 import { styled, alpha } from '@mui/material/styles';
-
+import sty from './style.css';
+import SendIcon from '@mui/icons-material/Send';
 
 import SportsMotorsportsIcon from '@mui/icons-material/SportsMotorsports';
 
@@ -87,11 +88,11 @@ function ResponsiveAppBar() {
   };
 
   return (
-    
-    <AppBar position="static" color='primary'>
+    <div className='menuu' >
+    <AppBar position="static" color='transparent'>
       <Container maxWidth="xl" >
         <Toolbar disableGutters>
-          <SportsMotorsportsIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <SportsMotorsportsIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, color:'white' }} />
           <Typography
             variant="h6"
             noWrap
@@ -131,8 +132,9 @@ function ResponsiveAppBar() {
               onClick={handleOpenNavMenu}
               color="inherit"
             >
-              <MenuIcon />
+              <MenuIcon style={{color:'white'}}/>
             </IconButton>
+            
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
@@ -157,8 +159,10 @@ function ResponsiveAppBar() {
                 </MenuItem>
               ))}
             </Menu>
+            
           </Box>
-          <SportsMotorsportsIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          
+          <SportsMotorsportsIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1, color:'white' }} />
           <Typography
             variant="h5"
             noWrap
@@ -196,6 +200,15 @@ function ResponsiveAppBar() {
               inputProps={{ 'aria-label': 'search' }}
             />
           </Search>
+
+          <Tooltip title="Open settings" >
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 , mr: 2,
+              display: { xs: 'flex', md: 'none' },
+              flexGrow: 1,
+              color: 'white', }}>
+                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+              </IconButton>
+            </Tooltip>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             
           </Box>
@@ -234,6 +247,7 @@ function ResponsiveAppBar() {
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">{setting}</Typography>
+                  
                 </MenuItem>
               ))}
             </Menu>
@@ -241,7 +255,49 @@ function ResponsiveAppBar() {
         </Toolbar>
       </Container>
     </AppBar>
-   
+    <div className='BeginMenu'>
+    <Typography className='Middletext'
+     textAlign="center"
+     variant="h2"
+     sx={{
+      textTransform :'capitalize',
+      mr: 2,
+      fontVariant :'small-caps',
+      fontFamily: '"Segoe UI"',
+      fontWeight: 300,
+      letterSpacing: '0rem',
+      color: 'white',
+      textDecoration: 'none',
+    }}>
+      Roads were made for journeys not destinations
+    </Typography>
+
+    <Typography className='Middleetext'
+     textAlign="center"
+     variant="h3"
+     sx={{
+      mr: 2,
+      
+      fontFamily: '"Segoe UI"',
+      fontWeight: 400,
+      letterSpacing: '.1rem',
+      color: 'white',
+      textDecoration: 'none',
+    }}>
+      Join the community
+    </Typography>
+    <div className='BeginButtons'>
+    <Button 
+    variant="outlined" size="large" style={{color:'black' ,backgroundColor:'white' ,backgroundOpacity:'.5' , border:'none' , opacity: '0.5' }}>
+          Learn More
+        </Button>
+    <Button variant="contained" size="large" >
+          Join Us <SendIcon style={{marginLeft :' 5px'}} />
+        </Button>
+
+        </div>
+    </div>        
+   </div>
   );
 }
 export default ResponsiveAppBar;
