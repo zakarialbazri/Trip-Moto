@@ -14,11 +14,17 @@ import MenuItem from '@mui/material/MenuItem';
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
 import { styled, alpha } from '@mui/material/styles';
-
-
 import SportsMotorsportsIcon from '@mui/icons-material/SportsMotorsports';
+import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
+import Album from './strollpage';
 
-const pages = ['Se balder', 'Creer/organiser', 'Sejour'];
+const pages = [
+  { title: 'Se balader', path: './components/strollpage' },
+  { title: 'Creer/organiser', path: '/creer-organiser' },
+  { title: 'Sejour', path: '/sejour' },
+];
+
+
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -200,43 +206,18 @@ function ResponsiveAppBar() {
             
           </Box>
 
-          <Box sx={{ flexGrow: 0,display: { xs: 'none', md: 'flex' }}}>
-          {pages.map((page) => (
-              <Button
-                key={page}
+          <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' } }}>
+            {pages.map((page) => (
+              <Link
+                key={page.title} // Use a unique key for each page
+                to={page.path} // Provide the correct path or URL for each page
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                component={Button} // Use the Button component from Material-UI
+                sx={{ my: 2, color: 'white', display: 'block', textDecoration: 'none' }}
               >
-                {page}
-              </Button>
+                {page.title}
+              </Link>
             ))}
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
           </Box>
         </Toolbar>
       </Container>
