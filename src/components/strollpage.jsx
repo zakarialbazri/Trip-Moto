@@ -38,7 +38,7 @@ import DirectionsIcon from '@mui/icons-material/Directions';
 import Divider from '@mui/material/Divider';
 import { makeStyles } from '@mui/styles';
 import Backdrop from '@mui/material/Backdrop';
-
+import { ReactBingmaps } from 'react-bingmaps';
 
 
 function Copyright() {
@@ -115,6 +115,9 @@ const imageURL = "https://cdn.pixabay.com/photo/2023/05/20/20/39/european-roller
 const defaultTheme = createTheme();
 
 export default function Album() {
+
+  const latitude = 51.5074; // Example latitude
+  const longitude = -0.1278; // Example longitude
   
   const [expanded, setExpanded] = React.useState(false);
 
@@ -198,7 +201,7 @@ export default function Album() {
                     name="address1"
                     label="Enter you current localisation"
                     fullWidth
-                    autoComplete="shipping address-line1"
+                    autoComplete="address"
                     variant="standard"
                   />
                 </Grid>
@@ -208,7 +211,7 @@ export default function Album() {
                     name="address2"
                     label="Where do you want to stroll today"
                     fullWidth
-                    autoComplete="shipping address-line2"
+                    autoComplete="destination"
                     variant="standard"
                   />
                 </Grid>
@@ -219,7 +222,7 @@ export default function Album() {
                     name="city"
                     label="City"
                     fullWidth
-                    autoComplete="shipping address-level2"
+                    autoComplete="city"
                     variant="standard"
                   />
                 </Grid>
@@ -271,7 +274,13 @@ export default function Album() {
                 opacity: [0.9, 0.8, 0.7],
               },
             }}
-          />
+          >
+            <ReactBingmaps
+              bingmapKey="Av6fxZ-p_2NlKveJgeJlzlfhITkqZq7nm72MhXdbQR6ThydQil2hzPkATctmB_6A"
+              center={[latitude, longitude]}
+              zoom={10}
+            />
+          </Box>
           <Container sx={{ py: 8 }} maxWidth="md">
           {/* End hero unit */}
             <Grid container spacing={4}>
