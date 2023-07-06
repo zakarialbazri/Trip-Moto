@@ -1,5 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Style from "./App.css";
+import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';
+import { useAuth0 } from "@auth0/auth0-react";
+import { InfinitySpin } from 'react-loader-spinner'
+import Menu from './components/menu';
+import Test from './components/test';
+
+
+
+
+ 
 
 
 const App = () => { 
@@ -23,13 +34,29 @@ const App = () => {
   }, []);
 
   return (
-    <div>
-      {error ? (
-        <h1>Error: {error}</h1>
-      ) : (
-        <h1>{message}</h1>
-      )}
-    </div>
+    <BrowserRouter>
+     
+      {erreur && <p>Authentication Error</p>}
+      {!erreur && isLoading && 
+      <div className='Loading-header' >
+      <InfinitySpin 
+            width='200'
+            color="white"
+            ariaLabel="loading"
+            
+                          /></div>}
+      {!erreur && !isLoading && (
+        <>
+     <div className='App'>
+        <Routes>
+            <Route exact path='/' element={<Menu />} />
+       </Routes> 
+     </div>
+        
+       
+       </>
+       )}
+     </BrowserRouter>
   );
 };
 
