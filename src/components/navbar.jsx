@@ -94,7 +94,7 @@ function ResponsiveAppBar() {
  
   const settings = ['Profile', 'Account', 'Dashboard', < p onClick={() => logout()}>Logout</p>];
   return (
-    <div className='menuu' >
+    <>
     <AppBar position="static" color='transparent'>
       <Container maxWidth="xl" >
         <Toolbar disableGutters>
@@ -256,57 +256,14 @@ function ResponsiveAppBar() {
 ) : (
   <>
    
-    <Button variant="contained" size="small" onClick={() => loginWithRedirect()}>
-      Join Us <SendIcon style={{ marginLeft: ' 5px' }} />
+    <Button  style={{color:'#FFCB74'}}  size="small" onClick={() => loginWithRedirect()}>
+      <p style={{color:'#FFCB74'}}>Join Us</p><SendIcon style={{ marginLeft: ' 5px' ,color:'#FFCB74' }} />
     </Button>
   </>
 )}
         </Toolbar>
       </Container>
-    </AppBar>
-    <div className='BeginMenu'>
-    <Typography className='Middletext'
-     textAlign="center"
-     variant="h2"
-     sx={{
-      textTransform :'capitalize',
-      mr: 2,
-      fontVariant :'small-caps',
-      fontFamily: '"Segoe UI"',
-      fontWeight: 300,
-      letterSpacing: '0rem',
-      color: 'white',
-      textDecoration: 'none',
-    }}>
-      Roads were made for journeys not destinations
-    </Typography>
-
-    <Typography className='Middleetext'
-     textAlign="center"
-     variant="h3"
-     sx={{
-      mr: 2,
-      
-      fontFamily: '"Segoe UI"',
-      fontWeight: 400,
-      letterSpacing: '.1rem',
-      color: 'white',
-      textDecoration: 'none',
-    }}>
-      Join the community
-    </Typography>
-    <div className='BeginButtons'>
-    <Button 
-    variant="outlined" size="large" style={{color:'black' ,backgroundColor:'white' ,backgroundOpacity:'.5' , border:'none' , opacity: '0.5' }}>
-          Learn More
-        </Button>
-    <Button variant="contained" size="large" >
-          Join Us <SendIcon style={{marginLeft :' 5px'}} />
-        </Button>
-
-        </div>
-    </div>        
-   </div>
-  );
-}
+    </AppBar></>
+            );
+            }
 export default ResponsiveAppBar;

@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import Navbar from "./components/navbar";
-import Login from "./components/Login";
-import Signup from "./components/Signup";
 import Style from "./App.css";
 import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';
 import { useAuth0 } from "@auth0/auth0-react";
-import Footer from "./components/footer";
 import { InfinitySpin } from 'react-loader-spinner'
+import Menu from './components/menu';
 import Test from './components/test';
+
+
 
 
  
@@ -48,12 +47,9 @@ const App = () => {
                           /></div>}
       {!erreur && !isLoading && (
         <>
-     <div className='Body'>
+     <div className='App'>
         <Routes>
-            <Route exact path='/' element={<Navbar />} />
-            <Route exact path='/login' element={<Footer />} />
-            <Route exact path='/signup' element={<Signup />} />
-            <Route exact path='/test' element={<Test />} />
+            <Route exact path='/' element={<Menu />} />
        </Routes> 
      </div>
         
