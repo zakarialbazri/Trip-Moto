@@ -1,0 +1,82 @@
+.inputs{
+    margin: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 2rem;
+    border-radius: 2rem;
+    margin-bottom: 4rem;
+  
+}
+
+.inputs__maping{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    width: 30%;
+ 
+}
+
+.selected{
+    gap: 5rem;
+}
+
+.formInput{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+  
+}
+
+input{
+    padding: 15px;
+    margin: 10px 0px;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+
+
+label{
+    font-size: 1.6rem !important;
+    color: gray;
+}
+
+span{
+    font-size: 1.2rem;
+    padding: .3rem;
+    color: red;
+    display: none;
+
+}
+
+input:invalid[focused="true"]{
+    border: 1px solid red;
+}
+
+input:invalid[focused="true"] ~ span{
+    display: block;
+}
+
+.formbutton{
+    padding: 1.2rem;
+    border-radius: 1rem;
+    width: 20%;
+    margin: 1rem auto;
+    font-size: 1.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .6rem;
+}
+.inputs__container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.MuiInputBase-input{
+    font-size: 1.4rem !important;
+}
+.inputs__form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
