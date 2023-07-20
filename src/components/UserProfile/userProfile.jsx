@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
@@ -20,6 +20,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import MapIcon from '@mui/icons-material/Map';
 import PinDropIcon from '@mui/icons-material/PinDrop';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
+import { TextField } from '@mui/material';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -112,6 +113,66 @@ const useStyles = makeStyles((theme) => ({
 
 function ProfilePage() {
   const classes = useStyles();
+  const [fullName, setFullName] = useState('Johnatan Smith');
+  const [email, setEmail] = useState('example@example.com');
+  const [phone, setPhone] = useState('(097) 234-5678');
+  const [motorcycle, setMotorcycle] = useState('XX-1234567');
+  const [address, setAddress] = useState('Bay Area, San Francisco, CA');
+  const [avatarImage, setAvatarImage] = useState('https://cdn-icons-png.flaticon.com/512/17/17004.png?w=740&t=st=1689280122~exp=1689280722~hmac=2e1efeaf54f332057eb906fd094394646b6498cb340c58e1887153f7e4ac0112');
+
+
+
+  const handleFullNameChange = (event) => {
+    setFullName(event.target.value);
+  };
+
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+  };
+
+  const handlePhoneChange = (event) => {
+    setPhone(event.target.value);
+  };
+
+  const handleMotorcycleChange = (event) => {
+    setMotorcycle(event.target.value);
+  };
+
+  const handleAddressChange = (event) => {
+    setAddress(event.target.value);
+  };
+
+  const handleAvatarChange = (event) => {
+    const file = event.target.files[0];
+
+    // Check if the file is selected
+    if (file) {
+      // Create a FileReader to read the image file
+      const reader = new FileReader();
+
+      // Set up the FileReader callback function
+      reader.onloadend = () => {
+        // Update the state with the image data
+        setAvatarImage(reader.result);
+      };
+
+      // Read the image file as a data URL
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handleUpdate = () => {
+    // Perform any necessary actions, such as sending updated information to a server or saving in local storage
+    console.log('Updated Information:');
+    console.log('Full Name:', fullName);
+    console.log('Email:', email);
+    console.log('Phone:', phone);
+    console.log('Motorcycle:', motorcycle);
+    console.log('Address:', address);
+  };
+
+  
+
 
   return (
     <section className={classes.root}>
@@ -132,12 +193,21 @@ function ProfilePage() {
               flexDirection: 'column',
               justifyContent: 'space-between',}}>
             <CardContent>
-              <CardMedia
-                component="img"
-                alt="avatar"
-                src="https://cdn-icons-png.flaticon.com/512/17/17004.png?w=740&t=st=1689280122~exp=1689280722~hmac=2e1efeaf54f332057eb906fd094394646b6498cb340c58e1887153f7e4ac0112"
-                className={classes.avatar}
+            <input
+                type="file"
+                accept="image/*"
+                id="avatar"
+                style={{ display: 'none' }}
+                onChange={handleAvatarChange}
               />
+              <label htmlFor="avatar">
+                <CardMedia
+                  component="img"
+                  alt="avatar"
+                  src={avatarImage}
+                  className={classes.avatar}
+                />
+              </label>
               <div className={classes.infoAva}>
               <Typography variant="subtitle2" color="textSecondary" gutterBottom>
                 Occupation
@@ -163,7 +233,7 @@ function ProfilePage() {
                 </Typography>
               </Grid>
                               
-                <Button variant="contained" sx={{ backgroundColor: 'var(--yellow)', color: 'var(--black)', marginBottom: '8px', width: '100%', display: 'flex', justifyContent: 'center', borderRadius: '10px' }} startIcon={<EditIcon />}>
+                <Button variant="contained" onClick={handleUpdate} sx={{ backgroundColor: 'var(--yellow)', color: 'var(--black)', marginBottom: '8px', width: '100%', display: 'flex', justifyContent: 'center', borderRadius: '10px' }} startIcon={<EditIcon />}>
                   UPDATE
                 </Button>
               
@@ -180,9 +250,12 @@ function ProfilePage() {
                 </Typography>
               </Grid>
               <Grid item xs={9}>
-                <Typography variant="body1" color="textSecondary">
-                  Johnatan Smith
-                </Typography>
+              <TextField
+                    fullWidth
+                    variant="standard" // Change variant as per your requirement
+                    value={fullName}
+                    onChange={handleFullNameChange}
+                  />              
               </Grid>
             </Grid>
             <hr />
@@ -193,9 +266,12 @@ function ProfilePage() {
                 </Typography>
               </Grid>
               <Grid item xs={9}>
-                <Typography variant="body1" color="textSecondary">
-                  example@example.com
-                </Typography>
+              <TextField
+                    fullWidth
+                    variant="standard" // Change variant as per your requirement
+                    value={email}
+                    onChange={handleEmailChange}
+                  />              
               </Grid>
             </Grid>
             <hr />
@@ -206,9 +282,12 @@ function ProfilePage() {
                 </Typography>
               </Grid>
               <Grid item xs={9}>
-                <Typography variant="body1" color="textSecondary">
-                  (097) 234-5678
-                </Typography>
+              <TextField
+                    fullWidth
+                    variant="standard"
+                    value={phone}
+                    onChange={handlePhoneChange}
+                  />
               </Grid>
             </Grid>
             <hr />
@@ -219,9 +298,12 @@ function ProfilePage() {
                 </Typography>
               </Grid>
               <Grid item xs={9}>
-                <Typography variant="body1" color="textSecondary">
-                  XX-1234567
-                </Typography>
+              <TextField
+                    fullWidth
+                    variant="standard"
+                    value={motorcycle}
+                    onChange={handleMotorcycleChange}
+                  />
               </Grid>
             </Grid>
             <hr />
@@ -232,9 +314,12 @@ function ProfilePage() {
                 </Typography>
               </Grid>
               <Grid item xs={9}>
-                <Typography variant="body1" color="textSecondary">
-                  Bay Area, San Francisco, CA
-                </Typography>
+              <TextField
+                    fullWidth
+                    variant="standard"
+                    value={address}
+                    onChange={handleAddressChange}
+                  />
               </Grid>
             </Grid>
           </CardContent>
