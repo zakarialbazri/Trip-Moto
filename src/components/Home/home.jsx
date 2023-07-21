@@ -25,7 +25,7 @@ const Hero = () => {
                     <h1>
                        Discover <br />
                        The universe of <br />
-                       Motocycling 
+                       Motorcycling 
                     </h1>
                 </div>
                 <div className="flexColStart hero-des">

@@ -35,6 +35,7 @@ code {
   --gris: #2F2F2F;
   --white: #F6F6F6;
   --yellow: #FFCB74;
+  --gris2: #504c4c;
 
   --gris-yellow: linear-gradient(97.05deg, #FFCB74 3.05%, #2F2F2F 100%)
 }

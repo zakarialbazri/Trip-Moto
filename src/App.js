@@ -1,6 +1,6 @@
 import React, { useEffect, useState, Component } from 'react';
 import axios from 'axios';
-import Style from "./App.css";
+import "./App.css";
 import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';
 import { useAuth0 } from "@auth0/auth0-react";
 import { InfinitySpin } from 'react-loader-spinner';

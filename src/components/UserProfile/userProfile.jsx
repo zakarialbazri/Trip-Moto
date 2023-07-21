@@ -21,32 +21,36 @@ import MapIcon from '@mui/icons-material/Map';
 import PinDropIcon from '@mui/icons-material/PinDrop';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import { TextField } from '@mui/material';
+import './userProfile.css';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: 'var(--white)',
+    background: 'transparent',
     padding: '16px', // Equivalent to theme.spacing(2)
+    position: 'relative',
+    
   },
+
   container: {
     padding: '40px',
     
   },
+
   card: {
     marginBottom: '32px', // Equivalent to theme.spacing(4)
     width: '100%',
-    height: '60%',
+    height: '70%',
     padding: '20px',
     marginLeft: '20px',
     position: 'relative',
-    
-    
+    boxShadow: '0px 8px 20px rgba(0, 0, 0, 0.6)',    
   },
+
   cardava: {
     marginBottom: '32px', // Equivalent to theme.spacing(4)
     width: '100%',
-    height: '95%',
-    
-  },
+    height: '80%',
+    boxShadow: '0px 8px 20px rgba(0, 0, 0, 0.6)',    },
 
   updateButton: {
     
@@ -73,14 +77,17 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '10px',
     marginBottom: '10px',
     borderRadius: '10px',
-    justifyContent: 'center',
+    justifyContent: 'center', // Centers the links horizontally
     color: 'var(--black)',
+
+    // Adding margin and flex property to equally space the links
     '& a': {
       color: 'var(--black)',
       textDecoration: 'none',
-      marginLeft: '8px',
-      fontFamily: 'Arial, sans-serif', // Replace with desired font family
-      fontSize: '14px', // Replace with desired font size
+      marginLeft: '10px', // Adjust the margin as needed
+      marginRight: '10px', // Adjust the margin as needed
+      fontFamily: 'Arial, sans-serif',
+      fontSize: '14px',
     },
   },
 
@@ -91,7 +98,9 @@ const useStyles = makeStyles((theme) => ({
     width: '98%',
     height: '100%',
     marginLeft: '20px',
-  },
+    boxShadow: '0px 8px 20px rgba(0, 0, 0, 0.6)', 
+   },
+
   cardFuture: {
   
     justifyContent: 'space-between',
@@ -99,12 +108,13 @@ const useStyles = makeStyles((theme) => ({
     width: '98%',
     height: '100%',
     marginLeft: '20px',
-    
+    boxShadow: '0px 8px 20px rgba(0, 0, 0, 0.6)',    
   },
   infoContainer: {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
+    margin: '20px',
     padding: '16px', // Equivalent to theme.spacing(2)
   },
   
@@ -176,18 +186,24 @@ function ProfilePage() {
 
   return (
     <section className={classes.root}>
+      <div class="custom-shape-divider-bottom-1689901353">
+          <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+              <path d="M1200 0L0 0 892.25 114.72 1200 0z" class="shape-fill"></path>
+          </svg>
+      </div>
       <Grid container className={classes.container}>
+        
         <Grid item xs={12}>
           <Breadcrumbs separator="›" aria-label="breadcrumb" className={classes.breadcrumb}>
             <Link color="inherit" href="#">
               Home
             </Link>
             <Link color="inherit" href="#">
-              User
+              Profile
             </Link>
-            <Typography color="textPrimary">User Profile</Typography>
           </Breadcrumbs>
         </Grid>
+        
         <Grid item xs={12} lg={4}>
           <Card className={classes.cardava} sx={{ backgroundColor: 'var(--gris2)', display: 'flex',
               flexDirection: 'column',
@@ -233,7 +249,7 @@ function ProfilePage() {
                 </Typography>
               </Grid>
                               
-                <Button variant="contained" onClick={handleUpdate} sx={{ backgroundColor: 'var(--yellow)', color: 'var(--black)', marginBottom: '8px', width: '100%', display: 'flex', justifyContent: 'center', borderRadius: '10px' }} startIcon={<EditIcon />}>
+                <Button variant="contained"  onClick={handleUpdate} sx={{ backgroundColor: 'var(--yellow)', color: 'var(--black)', marginBottom: '8px', width: '100%', display: 'flex', justifyContent: 'center', borderRadius: '10px' }} startIcon={<EditIcon style={{ color: 'black' }} />}>
                   UPDATE
                 </Button>
               
@@ -241,97 +257,98 @@ function ProfilePage() {
           </Card>
         </Grid>
         <Grid item xs={12} lg={8}>
-        <Card className={classes.card}>
-          <CardContent>
-            <Grid container className={classes.infoContainer}>
-              <Grid item xs={3}>
-                <Typography variant="body1" style={{ display: 'flex', alignItems: 'center' }}>
-                  <PersonIcon style={{ marginRight: '8px' }} /> Full Name
-                </Typography>
-              </Grid>
-              <Grid item xs={9}>
-              <TextField
-                    fullWidth
-                    variant="standard" // Change variant as per your requirement
-                    value={fullName}
-                    onChange={handleFullNameChange}
-                  />              
-              </Grid>
-            </Grid>
-            <hr />
-            <Grid container className={classes.infoContainer}>
-              <Grid item xs={3}>
-                <Typography variant="body1" style={{ display: 'flex', alignItems: 'center' }}>
-                  <EmailIcon style={{ marginRight: '8px' }} /> Email
-                </Typography>
-              </Grid>
-              <Grid item xs={9}>
-              <TextField
-                    fullWidth
-                    variant="standard" // Change variant as per your requirement
-                    value={email}
-                    onChange={handleEmailChange}
-                  />              
-              </Grid>
-            </Grid>
-            <hr />
-            <Grid container className={classes.infoContainer}>
-              <Grid item xs={3}>
-                <Typography variant="body1" style={{ display: 'flex', alignItems: 'center' }}>
-                  <PhoneIcon style={{ marginRight: '8px' }} /> Phone
-                </Typography>
-              </Grid>
-              <Grid item xs={9}>
-              <TextField
-                    fullWidth
-                    variant="standard"
-                    value={phone}
-                    onChange={handlePhoneChange}
-                  />
-              </Grid>
-            </Grid>
-            <hr />
-            <Grid container className={classes.infoContainer}>
-              <Grid item xs={3}>
-                <Typography variant="body1" style={{ display: 'flex', alignItems: 'center' }}>
-                  <TwoWheelerIcon style={{ marginRight: '8px' }} /> Motorcycle
-                </Typography>
-              </Grid>
-              <Grid item xs={9}>
-              <TextField
-                    fullWidth
-                    variant="standard"
-                    value={motorcycle}
-                    onChange={handleMotorcycleChange}
-                  />
-              </Grid>
-            </Grid>
-            <hr />
-            <Grid container className={classes.infoContainer}>
-              <Grid item xs={3}>
-                <Typography variant="body1" style={{ display: 'flex', alignItems: 'center' }}>
-                  <HomeIcon style={{ marginRight: '8px' }} /> Address
-                </Typography>
-              </Grid>
-              <Grid item xs={9}>
-              <TextField
-                    fullWidth
-                    variant="standard"
-                    value={address}
-                    onChange={handleAddressChange}
-                  />
-              </Grid>
-            </Grid>
-          </CardContent>
-        </Card>
+                <Card className={classes.card}>
+                  <CardContent>
+                    <Grid container className={classes.infoContainer}>
+                      <Grid item xs={3}>
+                        <Typography variant="body1" style={{ display: 'flex', alignItems: 'center' }}>
+                          <PersonIcon style={{ marginRight: '8px' }} /> Full Name
+                        </Typography>
+                      </Grid>
+                      <Grid item xs={9}>
+                      <TextField
+                            fullWidth
+                            variant="standard" // Change variant as per your requirement
+                            value={fullName}
+                            onChange={handleFullNameChange}
+                          />              
+                      </Grid>
+                    </Grid>
+                    <Grid container className={classes.infoContainer}>
+                      <Grid item xs={3}>
+                        <Typography variant="body1" style={{ display: 'flex', alignItems: 'center' }}>
+                          <EmailIcon style={{ marginRight: '8px' }} /> Email
+                        </Typography>
+                      </Grid>
+                      <Grid item xs={9}>
+                      <TextField
+                            fullWidth
+                            variant="standard" // Change variant as per your requirement
+                            value={email}
+                            onChange={handleEmailChange}
+                          />              
+                      </Grid>
+                    </Grid>
+                    <Grid container className={classes.infoContainer}>
+                      <Grid item xs={3}>
+                        <Typography variant="body1" style={{ display: 'flex', alignItems: 'center' }}>
+                          <PhoneIcon style={{ marginRight: '8px' }} /> Phone
+                        </Typography>
+                      </Grid>
+                      <Grid item xs={9}>
+                      <TextField
+                            fullWidth
+                            variant="standard"
+                            value={phone}
+                            onChange={handlePhoneChange}
+                          />
+                      </Grid>
+                    </Grid>
+                    <Grid container className={classes.infoContainer}>
+                      <Grid item xs={3}>
+                        <Typography variant="body1" style={{ display: 'flex', alignItems: 'center' }}>
+                          <TwoWheelerIcon style={{ marginRight: '8px' }} /> Motorcycle
+                        </Typography>
+                      </Grid>
+                      <Grid item xs={9}>
+                      <TextField
+                            fullWidth
+                            variant="standard"
+                            value={motorcycle}
+                            onChange={handleMotorcycleChange}
+                          />
+                      </Grid>
+                    </Grid>
+                    <Grid container className={classes.infoContainer}>
+                      <Grid item xs={3}>
+                        <Typography variant="body1" style={{ display: 'flex', alignItems: 'center' }}>
+                          <HomeIcon style={{ marginRight: '8px' }} /> Address
+                        </Typography>
+                      </Grid>
+                      <Grid item xs={9}>
+                      <TextField
+                            fullWidth
+                            variant="standard"
+                            value={address}
+                            onChange={handleAddressChange}
+                          />
+                      </Grid>
+                    </Grid>
+                  </CardContent>
+                </Card>
 
 
         <Grid container>
             <Grid item xs={12} md={6}>
-              <Card className={classes.cardDone}>
+            <Card className={classes.cardDone}>
                 <CardContent>
-                  <Typography variant="body1" color="var(--black)" style={{ display: 'flex', alignItems: 'center' }}>
-                      <PinDropIcon style={{ marginRight: '5px' }} /> Taken Rides{' '}
+                  <Typography
+                    variant="h5"
+                    color="var(--black)"
+                    sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '10px' }}
+                  >
+                    <PinDropIcon style={{ marginRight: '5px' }} />
+                    Taken Rides
                   </Typography>
                   <Typography variant="body2" color="textSecondary" style={{ display: 'flex', alignItems: 'center' }}>
                     <LocationOnIcon style={{ marginRight: '5px' }} />
@@ -355,35 +372,41 @@ function ProfilePage() {
                   </Typography>
                 </CardContent>
               </Card>
+
             </Grid>
             <Grid item xs={12} md={6}>
-              <Card className={classes.cardFuture}>
-                <CardContent>
-                <Typography variant="body1" color="var(--black)" style={{ display: 'flex', alignItems: 'center' }}>
-                    <MapIcon style={{ marginRight: '5px' }} /> Viseted Spots
+            <Card className={classes.cardFuture}>
+              <CardContent>
+                <Typography
+                  variant="h5"
+                  color="var(--black)"
+                  sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '10px' }}
+                >
+                  <MapIcon style={{ marginRight: '5px' }} />
+                  Visited Spots
                 </Typography>
-                  <Typography variant="body2" color="textSecondary" style={{ display: 'flex', alignItems: 'center' }}>
-                    <LocationOnIcon style={{ marginRight: '5px' }} />
-                    <span style={{ fontSize: '.77rem' }}>Location 1</span>
-                  </Typography>
-                  <Typography variant="body2" color="textSecondary" style={{ display: 'flex', alignItems: 'center' }}>
-                    <LocationOnIcon style={{ marginRight: '5px' }} />
-                    <span style={{ fontSize: '.77rem' }}>Location 2</span>
-                  </Typography>
-                  <Typography variant="body2" color="textSecondary" style={{ display: 'flex', alignItems: 'center' }}>
-                    <LocationOnIcon style={{ marginRight: '5px' }} />
-                    <span style={{ fontSize: '.77rem' }}>Location 3</span>
-                  </Typography>
-                  <Typography variant="body2" color="textSecondary" style={{ display: 'flex', alignItems: 'center' }}>
-                    <LocationOnIcon style={{ marginRight: '5px' }} />
-                    <span style={{ fontSize: '.77rem' }}>Location 4</span>
-                  </Typography>
-                  <Typography variant="body2" color="textSecondary" style={{ display: 'flex', alignItems: 'center' }}>
-                    <LocationOnIcon style={{ marginRight: '5px' }} />
-                    <span style={{ fontSize: '.77rem' }}>Location 5</span>
-                  </Typography>
-                </CardContent>
-              </Card>
+                <Typography variant="body2" color="textSecondary" style={{ display: 'flex', alignItems: 'center' }}>
+                  <LocationOnIcon style={{ marginRight: '5px' }} />
+                  <span style={{ fontSize: '.77rem' }}>Location 1</span>
+                </Typography>
+                <Typography variant="body2" color="textSecondary" style={{ display: 'flex', alignItems: 'center' }}>
+                  <LocationOnIcon style={{ marginRight: '5px' }} />
+                  <span style={{ fontSize: '.77rem' }}>Location 2</span>
+                </Typography>
+                <Typography variant="body2" color="textSecondary" style={{ display: 'flex', alignItems: 'center' }}>
+                  <LocationOnIcon style={{ marginRight: '5px' }} />
+                  <span style={{ fontSize: '.77rem' }}>Location 3</span>
+                </Typography>
+                <Typography variant="body2" color="textSecondary" style={{ display: 'flex', alignItems: 'center' }}>
+                  <LocationOnIcon style={{ marginRight: '5px' }} />
+                  <span style={{ fontSize: '.77rem' }}>Location 4</span>
+                </Typography>
+                <Typography variant="body2" color="textSecondary" style={{ display: 'flex', alignItems: 'center' }}>
+                  <LocationOnIcon style={{ marginRight: '5px' }} />
+                  <span style={{ fontSize: '.77rem' }}>Location 5</span>
+                </Typography>
+              </CardContent>
+            </Card>
             </Grid>
           </Grid>
 
