@@ -12,10 +12,9 @@ import Button from '@mui/material/Button';
 import { createTheme } from '@mui/material/styles';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
 import { styled, alpha } from '@mui/material/styles';
-import sty from './navbar.css';
+import './navbar.css';
 import SendIcon from '@mui/icons-material/Send';
 import { useAuth0 } from '@auth0/auth0-react';
 import SportsMotorsportsIcon from '@mui/icons-material/SportsMotorsports';
@@ -23,7 +22,7 @@ import {Link } from 'react-router-dom';
 import { ThemeProvider } from '@emotion/react';
 import { auth } from '../login_signup/sign_in_and_sign_up';
 
-const pages = [<Link to="/Rides">Rides</Link>, <Link to="/Spots">Trip Spots</Link>];
+const pages = [<Link to="/Rides">Rides</Link>, <Link to="/Spots">Trip Spots</Link>, <Link to="/Organize">Organize</Link>];
 
 const theme= createTheme({
   typography:{

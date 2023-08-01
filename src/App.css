@@ -35,6 +35,8 @@ html{
 .App {
   position: relative;
   overflow-x: clip;
+  background-color: #fdf3dd;
+
 }
 
 
@@ -48,5 +50,4 @@ html{
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
 

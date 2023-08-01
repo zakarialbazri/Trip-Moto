@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -8,7 +8,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import Grid from '@mui/material/Grid';
 import Rating from './user-ratingg';
-import style from './user-rating.css';
+import './user-rating.css';
 
 
 

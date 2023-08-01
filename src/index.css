@@ -1,28 +1,16 @@
 body {
   margin: 0;
-  
-  
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'New York',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
- 
 }
-body::-webkit-scrollbar{
-  display: none;
-}
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+.content {
+  position: relative;
+  z-index: 1; /* Ensure the content is above the slider */
+  margin-top: 100vh; /* Adjust this value to leave space for the slider */
 }
 
 code {
@@ -37,10 +25,33 @@ code {
   --yellow: #FFCB74;
   --gris2: #504c4c;
 
-  --gris-yellow: linear-gradient(97.05deg, #FFCB74 3.05%, #2F2F2F 100%)
+  --gris-yellow: linear-gradient(97.05deg, #FFCB74 3.05%, #2F2F2F 100%);
+  --black-yellow: linear-gradient(97.05deg, #FFCB74 3.05%, #111111 100%)
+  
 }
 
+.gradient-background {
+  background: rgb(24,6,231);
+  background: radial-gradient(circle, rgba(24,6,231,1) 0%, rgba(115,209,167,1) 100%);
+}
 
+.gradient{
+  background-color: #2441d3;
+  background-image: linear-gradient(72deg, #2441d3 0%, #50c8ae 30%, #1a00d9 66%, #050216 100%);
+
+}
+
+.gradient2{
+  background-color: #fdf3dd;
+  background-image: linear-gradient(90deg, #fdf3dd 0%, #caaacd 55%, #fdf3dd 100%);
+
+
+}
+
+@font-face {
+  font-family: 'New York';
+  src: url('./fonts/new-york.otf') format('opentype'); 
+}
 
 * {
   margin: 0;
@@ -158,7 +169,3 @@ a {
     font-size: 1.2rem;
   }
 }
-
-
-
-

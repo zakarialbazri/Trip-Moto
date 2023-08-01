@@ -13,7 +13,6 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import GoogleButton from 'react-google-button';
-import {useState, useEffect} from "react";
 import { signInWithGoogle } from './sign_in_and_sign_up';
 
 
@@ -47,7 +46,7 @@ export default function SignInSide() {
     });
     
   }
-  const [value, setvalue] = useState('')
+ 
   
 
   return (

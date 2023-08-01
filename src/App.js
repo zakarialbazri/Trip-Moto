@@ -16,6 +16,7 @@ import Login from './components/login_signup/Login';
 import Signup from './components/login_signup/Signup';
 import { auth, createUserProfileDocument } from './components/login_signup/sign_in_and_sign_up';
 import { AutoModeTwoTone } from '@mui/icons-material';
+import TripOrganizationPage from './components/Organise/organise';
 
 
 const App = () => { 
@@ -77,6 +78,7 @@ const App = () => {
             <Route exact path='/' element={  <div className='App'><Menu /> </div>} />
             <Route exact path='/Rides' element={<Rides />} />
             <Route exact path='/Spots' element={<Spots />} />
+            <Route exact path='/Organize' element={<TripOrganizationPage />} />
             <Route exact path='/Profile' element={<Profile />} />
             <Route exact path='/login' element={<Login />} />
             <Route exact path='/signup' element={<Signup />} />
